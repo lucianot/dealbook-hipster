@@ -1,0 +1,24 @@
+{
+  "name": "Dealbook RequireJS",
+  "version": "0.0.0",
+  "authors": [
+    "Luciano Tavares <lucianomt@gmail.com>"
+  ],
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "./vendors",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "requirejs": "~2.1.14",
+    "jquery": "~2.1.1"
+  }
+}
