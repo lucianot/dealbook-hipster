@@ -1,8 +1,8 @@
 //the require library is configuring paths
 requirejs.config({
-  baseUrl: 'scripts',
+  baseUrl: 'javascripts',
   paths: {
-    jquery: '../vendors/jquery/dist/jquery'
+    jquery: '../../vendors/jquery/dist/jquery'
   },
   shim: {
     jquery: '$'
