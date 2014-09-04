@@ -1,15 +1,14 @@
 //the require library is configuring paths
 requirejs.config({
-  baseUrl: 'javascripts',
+  baseUrl: '../app/javascripts',
   paths: {
-    jquery: '../../vendors/jquery/dist/jquery'
+    'jquery': '../../vendors/jquery/dist/jquery',
   },
   shim: {
     jquery: '$'
   }
 });
 
-require(['jquery'], function($) {
-  var body = $('body');
-  body.append('<p>Yo</p>');
+require(['app'], function(App) {
+  new App();
 });

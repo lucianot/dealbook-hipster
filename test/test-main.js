@@ -17,7 +17,8 @@ require.config({
   baseUrl: '/base',
 
   paths: {
-    'jquery': 'vendors/jquery/dist/jquery'
+    'jquery': 'vendors/jquery/dist/jquery',
+    'models/company': 'app/javascripts/models/company'
   },
 
   // dynamically load all test files
