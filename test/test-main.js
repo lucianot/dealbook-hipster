@@ -18,7 +18,9 @@ require.config({
 
   paths: {
     'jquery': 'vendors/jquery/dist/jquery',
-    'models/company': 'app/javascripts/models/company'
+    'models/company': 'app/javascripts/models/company',
+    'controllers/companies': 'app/javascripts/controllers/companies',
+    'views/company/index': 'app/javascripts/views/company/index'
   },
 
   // dynamically load all test files
