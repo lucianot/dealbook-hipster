@@ -2,7 +2,8 @@
 requirejs.config({
   baseUrl: '../app/javascripts',
   paths: {
-    'jquery': '../../vendors/jquery/dist/jquery',
+    jquery: '../../vendors/jquery/dist/jquery',
+    hbs: '../../vendors/require-handlebars-plugin/hbs'
   },
   shim: {
     jquery: '$'

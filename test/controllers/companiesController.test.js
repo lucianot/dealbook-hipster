@@ -1,13 +1,11 @@
 define(
   [
-    'controllers/companies',
-    'models/company',
-    'views/company/index'
+    // 'companiesController',
+    'company'
   ],
   function(
-    CompaniesController,
-    Company,
-    CompanyView
+    // CompaniesController,
+    Company
   ) {
   'use strict'
 

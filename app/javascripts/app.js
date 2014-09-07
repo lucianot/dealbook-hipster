@@ -2,7 +2,7 @@ define(
   [
     'jquery',
     'models/company',
-    'controllers/companies'
+    'controllers/companiesController'
   ],
   function(
     $,

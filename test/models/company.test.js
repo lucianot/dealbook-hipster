@@ -1,6 +1,6 @@
 define(
   [
-    'models/company'
+    'company'
   ],
   function(
     Company
