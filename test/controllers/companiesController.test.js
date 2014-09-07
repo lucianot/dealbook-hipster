@@ -1,15 +1,15 @@
 define(
   [
-    // 'companiesController',
+    'companiesController',
     'company'
   ],
   function(
-    // CompaniesController,
+    CompaniesController,
     Company
   ) {
   'use strict'
 
-  describe('Companies controller', function(){
+  describe('CompaniesController', function(){
     var companies = [ new Company('Magnetis'),
                       new Company('RockContent') ];
 
@@ -22,9 +22,10 @@ define(
     });
 
     // describe('#index()', function() {
-    //   it('calls view render', function() {
-    //     var index = CompaniesController.index();
-    //     expect(index.companies).to.be('Magnetis');
+    //   it('populates array of companies', function() {
+    //   });
+
+    //   it('render companies index', function() {
     //   });
     // });
   });

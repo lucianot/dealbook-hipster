@@ -17,9 +17,10 @@ require.config({
   baseUrl: '/base',
 
   paths: {
-    'jquery': 'vendors/jquery/dist/jquery',
-    'company': 'app/javascripts/models/company',
-    'companiesController': 'app/javascripts/controllers/companiesController'
+    jquery: 'vendors/jquery/dist/jquery',
+    hbs: 'vendors/require-handlebars-plugin/hbs',
+    company: 'app/javascripts/models/company',
+    companiesController: 'app/javascripts/controllers/companiesController'
   },
 
   // dynamically load all test files

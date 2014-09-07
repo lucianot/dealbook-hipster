@@ -13,9 +13,8 @@
     "**/.*",
     "node_modules",
     "bower_components",
-    "./vendors",
-    "test",
-    "tests"
+    "vendors",
+    "test"
   ],
   "dependencies": {
     "requirejs": "~2.1.14",
