@@ -2,12 +2,12 @@ define(
   [
     'jquery',
     'models/company',
-    'controllers/companiesController'
+    'router'
   ],
   function(
     $,
     Company,
-    CompaniesController
+    Router
   ) {
     'use strict';
 
@@ -16,7 +16,7 @@ define(
     // Top level App
     function App() {
       _seedCompaniesFixtures();
-      CompaniesController.index();
+      Router.startRouting();
     }
 
     // Saves companies to local storage to represent DB
