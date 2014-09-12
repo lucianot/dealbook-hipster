@@ -1,28 +1,33 @@
 define(function(){
-  var routes = [{ hash:'#companies', controller:'companiesController', action: 'index' }],
+  var routes = [{ hash:'#companies', controller:'companiesController', action: 'list' },
+                { hash:'#companies/new', controller:'companiesController', action: 'add' }],
       defaultRoute = '#companies',
       currentHash = '';
 
   function startRouting(){
     window.location.hash = window.location.hash || defaultRoute;
-    setInterval(hashCheck, 100);
+    setInterval(_hashCheck, 100);
   }
 
-  function hashCheck(){
-    var i,
-        currentRoute;
-
+  function _hashCheck(){
     if (window.location.hash != currentHash){
-      for (i = 0, currentRoute; currentRoute = routes[i++];){
-        if (window.location.hash == currentRoute.hash)
-          loadController(currentRoute.controller, currentRoute.action);
-      }
+      _findNewRoute();
       currentHash = window.location.hash;
     }
   }
 
-  function loadController(controllerName, actionName){
+  function _findNewRoute(){
+    for (var i = 0, currentRoute; currentRoute = routes[i++];){
+      if (window.location.hash == currentRoute.hash) {
+        console.log('Routing to ' +  currentRoute.controller + '#' + currentRoute.action);
+        _loadController(currentRoute.controller, currentRoute.action);
+      }
+    }
+  }
+
+  function _loadController(controllerName, actionName){
     require(['controllers/' + controllerName], function(controller){
+      console.log('Loading controller ' +  controllerName + '#' + actionName);
       controller[actionName]();
     });
   }

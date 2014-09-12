@@ -1,15 +1,21 @@
 define(
   [
-    'hbs!../../partials/company/index'
+    'hbs!../../partials/company/index',
+    'hbs!../../partials/company/new'
   ],
   function(
-    indexPartial
+    indexPartial,
+    newPartial
   ){
   'use strict';
 
-  function index() {
+  function list() {
     var companies = JSON.parse(localStorage.companies);
     render(indexPartial, { companies: companies });
+  }
+
+  function add() {
+    render(newPartial, {});
   }
 
   function render(partial, parameters){
@@ -17,6 +23,7 @@ define(
   }
 
   return {
-    index: index
+    list: list,
+    add: add
   };
 });
