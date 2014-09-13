@@ -1,11 +1,9 @@
 define(
   [
-    'jquery',
     'models/company',
     'router'
   ],
   function(
-    $,
     Company,
     Router
   ) {

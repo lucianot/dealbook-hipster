@@ -1,6 +1,8 @@
 define(function(){
-  var routes = [{ hash:'#companies', controller:'companiesController', action: 'list' },
-                { hash:'#companies/new', controller:'companiesController', action: 'add' }],
+  var routes = [
+        { hash:'#companies', controller:'companiesController', action: 'list' },
+        { hash:'#companies/new', controller:'companiesController', action: 'add' }
+      ],
       defaultRoute = '#companies',
       currentHash = '';
 
@@ -8,6 +10,8 @@ define(function(){
     window.location.hash = window.location.hash || defaultRoute;
     setInterval(_hashCheck, 100);
   }
+
+  // private
 
   function _hashCheck(){
     if (window.location.hash != currentHash){
@@ -17,7 +21,10 @@ define(function(){
   }
 
   function _findNewRoute(){
-    for (var i = 0, currentRoute; currentRoute = routes[i++];){
+    var currentRoute,
+        i;
+
+    for (i = 0, currentRoute; currentRoute = routes[i++];){
       if (window.location.hash == currentRoute.hash) {
         console.log('Routing to ' +  currentRoute.controller + '#' + currentRoute.action);
         _loadController(currentRoute.controller, currentRoute.action);
