@@ -1,11 +1,13 @@
 define(
   [
+    'router',
+    'repository',
     'models/company',
-    'router'
   ],
   function(
-    Company,
-    Router
+    Router,
+    Repo,
+    Company
   ) {
     'use strict';
 
@@ -17,11 +19,12 @@ define(
       Router.startRouting();
     }
 
-    // Saves companies to local storage to represent DB
+    // Saves companies to repo
     function _seedCompaniesFixtures() {
       var companies = [ new Company('Magnetis'),
                         new Company('RockContent') ];
-      localStorage.companies = JSON.stringify(companies);
+
+      Repo.init('companies', companies);
     };
 
     return App;

@@ -1,4 +1,10 @@
-define([], function(){
+define(
+  [
+    'repository'
+  ],
+  function(
+    Repo
+  ){
   'use strict';
 
   function Company(name) {
@@ -6,12 +12,7 @@ define([], function(){
   }
 
   Company.prototype.save = function() {
-    var companies = JSON.parse(localStorage.companies);
-
-    console.log("Saving", this);
-
-    companies.push(this);
-    localStorage.companies = JSON.stringify(companies);
+    Repo.save('companies', this);
     return this;
   }
 

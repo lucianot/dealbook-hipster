@@ -1,9 +1,11 @@
 define(
   [
-    'company'
+    'company',
+    'repository'
   ],
   function(
-    Company
+    Company,
+    Repo
   ) {
   'use strict'
 
