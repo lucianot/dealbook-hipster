@@ -19,6 +19,7 @@ require.config({
   paths: {
     jquery: 'vendors/jquery/dist/jquery',
     hbs: 'vendors/require-handlebars-plugin/hbs',
+    // router: 'app/javascripts/router',
     company: 'app/javascripts/models/company',
     companiesController: 'app/javascripts/controllers/companiesController'
   },

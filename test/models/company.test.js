@@ -17,5 +17,28 @@ define(
       var company = new Company();
       expect(company).to.have.property('name', 'NewCo');
     })
+
+    describe('#save', function() {
+      var companies = [ new Company('Magnetis'),
+                        new Company('RockContent') ];
+
+      beforeEach(function(){
+        localStorage.companies = JSON.stringify(companies);
+      });
+
+      afterEach(function(){
+        localStorage.companies = undefined;
+      });
+
+      it('saves a new company into storage', function() {
+        var newCompany = new Company('ContaAzul'),
+            savedCompaniesCount;
+
+        newCompany.save();
+        savedCompaniesCount = JSON.parse(localStorage.companies).length;
+
+        expect(savedCompaniesCount).to.be(3);
+      });
+    });
   });
 });

@@ -1,32 +1,32 @@
-define(
-  [
-    'companiesController',
-    'company'
-  ],
-  function(
-    CompaniesController,
-    Company
-  ) {
-  'use strict'
+// define(
+//   [
+//     'companiesController',
+//     'company'
+//   ],
+//   function(
+//     CompaniesController,
+//     Company
+//   ) {
+//   'use strict'
 
-  describe('CompaniesController', function(){
-    var companies = [ new Company('Magnetis'),
-                      new Company('RockContent') ];
+//   describe('CompaniesController', function(){
+//     var companies = [ new Company('Magnetis'),
+//                       new Company('RockContent') ];
 
-    beforeEach(function(){
-      localStorage.companies = JSON.stringify(companies);
-    });
+//     beforeEach(function(){
+//       localStorage.companies = JSON.stringify(companies);
+//     });
 
-    afterEach(function(){
-      localStorage.companies = undefined;
-    });
+//     afterEach(function(){
+//       localStorage.companies = undefined;
+//     });
 
-    // describe('#index()', function() {
-    //   it('populates array of companies', function() {
-    //   });
+//     // describe('#index()', function() {
+//     //   it('populates array of companies', function() {
+//     //   });
 
-    //   it('render companies index', function() {
-    //   });
-    // });
-  });
-});
+//     //   it('render companies index', function() {
+//     //   });
+//     // });
+//   });
+// });

@@ -21,11 +21,6 @@ define(
     function _seedCompaniesFixtures() {
       var companies = [ new Company('Magnetis'),
                         new Company('RockContent') ];
-
-      for (var i = 0, len = companies.length; i < len; i++){
-          console.log(companies[i].name);
-      }
-
       localStorage.companies = JSON.stringify(companies);
     };
 
