@@ -1,0 +1,33 @@
+{
+  "name": "dealbook-hipster",
+  "version": "0.0.0",
+  "description": "Dealbook for hipsters",
+  "main": "app/javascripts/main.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/lucianot/dealbook-hipster.git"
+  },
+  "keywords": [
+    "dealbook"
+  ],
+  "author": "Luciano Tavares",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lucianot/dealbook-hipster/issues"
+  },
+  "homepage": "https://github.com/lucianot/dealbook-hipster",
+  "dependencies": {
+    "mocha": "~1.21.4",
+    "karma": "~0.12.23",
+    "karma-mocha": "~0.1.9",
+    "requirejs": "~2.1.15",
+    "karma-requirejs": "~0.2.2",
+    "sinon": "~1.10.3",
+    "karma-sinon": "~1.0.3",
+    "karma-sinon-expect": "~0.1.4",
+    "karma-chrome-launcher": "~0.1.4"
+  }
+}
