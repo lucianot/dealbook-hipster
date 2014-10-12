@@ -3,24 +3,31 @@ define(
     'jquery',
     'models/company',
     'hbs!../../partials/company/index',
-    'hbs!../../partials/company/new'
+    'hbs!../../partials/company/new',
+    'hbs!../../partials/company/show'
   ],
   function(
     $,
     Company,
     IndexPartial,
-    NewPartial
+    NewPartial,
+    ShowPartial
   ){
   'use strict';
 
   function list() {
-    var companies = JSON.parse(localStorage.companies);
+    var companies = Company.all();
     _render(IndexPartial, { companies: companies });
   }
 
   function add() {
     _render(NewPartial, {});
     _bindAddEvents();
+  }
+
+  function show(id) {
+    var company = Company.find(id);
+    _render(ShowPartial, { company: company });
   }
 
   // private
@@ -52,6 +59,7 @@ define(
 
   return {
     list: list,
-    add: add
+    add: add,
+    show: show
   };
 });

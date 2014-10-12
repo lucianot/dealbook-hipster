@@ -14,6 +14,16 @@ define([], function(){
     return record;
   }
 
+  function all(model) {
+    return _parseRecords(localStorage[model]);
+  }
+
+  function find(model, id) {
+    var records = _parseRecords(localStorage[model]);
+
+    return records.filter(function(record) { return record.id == id; })[0];
+  }
+
   function init(model, records) {
     localStorage[model] = '[]';
 
@@ -30,6 +40,8 @@ define([], function(){
 
   return {
     save: save,
+    all: all,
+    find: find,
     init: init
   };
 });
