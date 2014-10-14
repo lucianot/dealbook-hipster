@@ -10,28 +10,25 @@ define(
   'use strict'
 
   describe('Company', function(){
-    it('has name', function(){
-      var company = new Company('Magnetis');
-      expect(company).to.have.property('name', 'Magnetis');
+    var companies = [ new Company('Magnetis'),
+                      new Company('RockContent') ];
+
+    beforeEach(function(){
+      ['Magnetis', 'RockContent'].forEach(function(name) {
+        new Company(name).save();
+      });
     });
 
-    it('sets default if no name', function(){
-      var company = new Company();
-      expect(company).to.have.property('name', 'NewCo');
-    })
+    afterEach(function(){
+      localStorage.companies = undefined;
+    });
+
+    it('has name', function(){
+      var company = new Company('ContaAzul');
+      expect(company).to.have.property('name', 'ContaAzul');
+    });
 
     describe('#save', function() {
-      var companies = [ new Company('Magnetis'),
-                        new Company('RockContent') ];
-
-      beforeEach(function(){
-        localStorage.companies = JSON.stringify(companies);
-      });
-
-      afterEach(function(){
-        localStorage.companies = undefined;
-      });
-
       it('saves a new company into storage', function() {
         var newCompany = new Company('ContaAzul'),
             savedCompaniesCount;
@@ -40,6 +37,25 @@ define(
         savedCompaniesCount = JSON.parse(localStorage.companies).length;
 
         expect(savedCompaniesCount).to.be(3);
+      });
+    });
+
+    describe('.all', function() {
+      it('returns all companies', function() {
+        var companies = Company.all();
+        expect(companies.length).to.be(2);
+      });
+    });
+
+    describe('.find', function() {
+      it('returns company if id is found', function() {
+        var company = Company.find(1);
+        expect(company.name).to.be('Magnetis');
+      });
+
+      it('returns company if id is found', function() {
+        var company = Company.find(3);
+        expect(company).to.be(undefined);
       });
     });
   });

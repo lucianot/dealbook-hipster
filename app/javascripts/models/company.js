@@ -8,7 +8,7 @@ define(
   'use strict';
 
   function Company(name) {
-    this.name = name || 'NewCo';
+    this.name = name;
     this.id;
   }
 

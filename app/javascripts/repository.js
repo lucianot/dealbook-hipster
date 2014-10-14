@@ -1,3 +1,4 @@
+// Repository
 define([], function(){
   'use strict';
 
@@ -35,7 +36,11 @@ define([], function(){
   // private
 
   function _parseRecords(records) {
-    return JSON.parse(records);
+    if (records === 'undefined') {
+      return [];
+    } else {
+      return JSON.parse(records);
+    }
   }
 
   return {
