@@ -5,7 +5,7 @@ define([], function(){
   function save(model, record) {
     var records = _parseRecords(localStorage[model]);
 
-    console.log("Saving", record);
+    // console.log("Saving", record);
 
     // Add id to record if none is given
     record.id = record.id || (records.length + 1);

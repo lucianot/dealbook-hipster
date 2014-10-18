@@ -28,14 +28,14 @@ define(
     });
 
     describe('#save', function() {
-      it('saves a new company into storage', function() {
-        var newCompany = new Company('ContaAzul'),
-            savedCompaniesCount;
+      it('saves a new company if valid', function() {
+        var newCompany = new Company('ContaAzul');
+        expect(newCompany.save()).to.be(newCompany);
+      });
 
-        newCompany.save();
-        savedCompaniesCount = JSON.parse(localStorage.companies).length;
-
-        expect(savedCompaniesCount).to.be(3);
+      it('throws error if invalid', function() {
+        var newCompany = new Company();
+        expect(newCompany.save).to.throwException();
       });
     });
 
