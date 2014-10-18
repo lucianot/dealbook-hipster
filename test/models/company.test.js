@@ -39,6 +39,32 @@ define(
       });
     });
 
+    describe('#isValid', function() {
+      describe('presence of name', function() {
+        it('is true if name is present', function() {
+          var newCompany = new Company('ContaAzul');
+          expect(newCompany.isValid()).to.be(true);
+        });
+
+        it('is true if name is blank', function() {
+          var newCompany = new Company();
+          expect(newCompany.isValid()).to.be(false);
+        });
+      });
+
+      describe('uniqueness of name', function() {
+        it('is true if name is unique', function() {
+          var newCompany = new Company('ContaAzul');
+          expect(newCompany.isValid()).to.be(true);
+        });
+
+        it('is true if name already exists', function() {
+          var newCompany = new Company('Magnetis');
+          expect(newCompany.isValid()).to.be(false);
+        });
+      });
+    });
+
     describe('.all', function() {
       it('returns all companies', function() {
         var companies = Company.all();
