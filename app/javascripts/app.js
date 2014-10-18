@@ -11,13 +11,15 @@ define(
   ) {
     'use strict';
 
-    console.log('App initialized');
+    console.log('Initializing app...');
 
     // Top level App
     function App() {
       _seedCompaniesFixtures();
       Router.startRouting();
     }
+
+    // private
 
     // Saves companies to repo
     function _seedCompaniesFixtures() {

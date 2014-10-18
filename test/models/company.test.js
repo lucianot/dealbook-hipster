@@ -27,11 +27,6 @@ define(
       expect(company).to.have.property('name', 'ContaAzul');
     });
 
-    it('gets an id after saved', function(){
-      var company = new Company('ContaAzul').save();
-      expect(company).to.have.property('id', 3);
-    });
-
     describe('#save', function() {
       it('saves a new company into storage', function() {
         var newCompany = new Company('ContaAzul'),
