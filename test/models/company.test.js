@@ -10,11 +10,10 @@ define(
   'use strict'
 
   describe('Company', function(){
-    var companies = [ new Company('Magnetis'),
-                      new Company('RockContent') ];
+    var companiesNames = ['Magnetis', 'RockContent'];
 
     beforeEach(function(){
-      ['Magnetis', 'RockContent'].forEach(function(name) {
+      companiesNames.forEach(function(name) {
         new Company(name).save();
       });
     });
@@ -26,6 +25,11 @@ define(
     it('has name', function(){
       var company = new Company('ContaAzul');
       expect(company).to.have.property('name', 'ContaAzul');
+    });
+
+    it('gets an id after saved', function(){
+      var company = new Company('ContaAzul').save();
+      expect(company).to.have.property('id', 3);
     });
 
     describe('#save', function() {
@@ -45,6 +49,12 @@ define(
         var companies = Company.all();
         expect(companies.length).to.be(2);
       });
+
+      it('returns empty when no companies exist', function() {
+        localStorage.companies = undefined;
+        var companies = Company.all();
+        expect(companies.length).to.be(0);
+      });
     });
 
     describe('.find', function() {
@@ -53,7 +63,7 @@ define(
         expect(company.name).to.be('Magnetis');
       });
 
-      it('returns company if id is found', function() {
+      it('returns company if no id is found', function() {
         var company = Company.find(3);
         expect(company).to.be(undefined);
       });

@@ -25,5 +25,7 @@ define(
     return this;
   }
 
+  // TODO: add name uniqueness validation
+
   return Company;
 });
