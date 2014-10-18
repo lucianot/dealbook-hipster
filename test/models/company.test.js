@@ -58,7 +58,7 @@ define(
           expect(newCompany.isValid()).to.be(true);
         });
 
-        it('is true if name already exists', function() {
+        it('is false if name already exists', function() {
           var newCompany = new Company('Magnetis');
           expect(newCompany.isValid()).to.be(false);
         });

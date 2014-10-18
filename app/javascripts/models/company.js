@@ -20,60 +20,74 @@ define(
     return Repo.find('companies', id);
   }
 
-  Company.prototype.save = function() {
-    var errors = this._validateAll();
+  Company.prototype = (function() {
 
-    if (errors.length === 0) {
-      Repo.save('companies', this);
-      return this;
-    } else {
-      throw new ValidationError(errors);
-    }
-  }
+    // Save record
+    function save() {
+      var errors = _validateAll(this);
 
-  Company.prototype.isValid = function() {
-    var errors = this._validateAll();
-    return errors.length === 0;
-  }
-
-  // private
-  // TODO: make truly private
-
-  function ValidationError(errors) {
-    this.name = 'ValidationError';
-    this.message = 'One or more validations have failed';
-    this.errors = errors;
-  };
-
-  Company.prototype._validateAll = function() {
-    var errors = [],
-        i;
-
-    errors.push(this._validatePresenceOf('name'));
-    errors.push(this._validateUniquenessOf('name'));
-
-    // Delete nulls
-    for(i = errors.length - 1; i >= 0; i--) {
-      if(errors[i] === null) {
-         errors.splice(i, 1);
+      if (errors.length === 0) {
+        Repo.save('companies', this);
+        return this;
+      } else {
+        throw new ValidationError(errors);
       }
     }
 
-    return errors;
-  }
+    // Check if record is valid
+    function isValid() {
+      var errors = _validateAll(this);
+      return errors.length === 0;
+    }
 
-  Company.prototype._validatePresenceOf = function(attribute) {
-    return !!this[attribute] ? null : 'presence of ' + attribute;
-  }
+    // private
 
-  Company.prototype._validateUniquenessOf = function(attribute) {
-    var currentValue = this[attribute],
-        companies = Company.all(),
-        existingValues = companies.map(function(company) { return company[attribute]; }),
-        index = existingValues.indexOf(currentValue);
+    // TODO: extract validation to module
 
-    return index < 0 ? null : 'uniqueness of ' + attribute;
-  }
+    function ValidationError(errors) {
+      this.name = 'ValidationError';
+      this.message = 'One or more validations have failed';
+      this.errors = errors;
+    };
+
+    function _validateAll(record) {
+      var record = record,
+          errors = [],
+          i;
+
+      errors.push(_validatePresenceOf(record, 'name'));
+      errors.push(_validateUniquenessOf(record, 'name'));
+
+      // Delete nulls
+      for(i = errors.length - 1; i >= 0; i--) {
+        if(errors[i] === null) {
+           errors.splice(i, 1);
+        }
+      }
+
+      return errors;
+    }
+
+    function _validatePresenceOf(record, attribute) {
+
+      return !!record[attribute] ? null : 'presence of ' + attribute;
+    }
+
+    function _validateUniquenessOf(record, attribute) {
+      var currentValue = record[attribute],
+          companies = Company.all(),
+          existingValues = companies.map(function(company) { return company[attribute]; }),
+          index = existingValues.indexOf(currentValue);
+
+      return index < 0 ? null : 'uniqueness of ' + attribute;
+    }
+
+    return {
+      constructor: Company,
+      save: save,
+      isValid: isValid
+    };
+  })();
 
   return Company;
 });
