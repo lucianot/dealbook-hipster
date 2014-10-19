@@ -1,13 +1,11 @@
 define(
   [
-    'company',
-    'repository'
+    'company'
   ],
   function(
-    Company,
-    Repo
+    Company
   ) {
-  'use strict'
+  'use strict';
 
   describe('Company', function(){
     var companiesNames = ['Magnetis', 'RockContent'];

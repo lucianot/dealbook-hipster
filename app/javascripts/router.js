@@ -1,4 +1,5 @@
-define(function(){
+// Router
+define([], function(){
   'use strict';
 
   var routes = {

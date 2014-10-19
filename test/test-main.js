@@ -20,6 +20,7 @@ require.config({
     jquery: 'vendors/jquery/dist/jquery',
     hbs: 'vendors/require-handlebars-plugin/hbs',
     repository: 'app/javascripts/repository',
+    validator: 'app/javascripts/validator',
     company: 'app/javascripts/models/company',
     companiesController: 'app/javascripts/controllers/companiesController'
   },

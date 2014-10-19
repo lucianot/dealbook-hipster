@@ -1,4 +1,4 @@
-  // Repository
+// Repository
 define([], function(){
   'use strict';
 
